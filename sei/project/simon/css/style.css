@@ -26,6 +26,7 @@ h2 {
   justify-content: center;
   align-content: center;
   grid-template-columns: repeat(2, auto);
+  border: 5px solid black;
 }
 .cell {
   width: 100px;
@@ -41,22 +42,26 @@ h2 {
   width: 200px;
   height: 200px;
   border-radius: 50px;
+  margin: 25px;
 }
 #blue {
   background-color: #0e24de;
   width: 200px;
   height: 200px;
   border-radius: 50px;
+  margin: 25px;
 }
 #green {
   background-color: #24cb24;
   width: 200px;
   height: 200px;
   border-radius: 50px;
+  margin: 25px;
 }
 #yellow {
   background-color: #c6d207;
   width: 200px;
   height: 200px;
   border-radius: 50px;
+  margin: 25px;
 }
