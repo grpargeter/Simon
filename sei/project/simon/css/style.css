@@ -1,0 +1,40 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+} /* body {  margin: 0;} */
+body {
+  font-family: "Ruluko", sans-serif;
+  margin: 0px auto;
+  text-align: center;
+  width: 700px;
+}
+.board {
+  width: auto;
+  height: auto;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(2, auto);
+}
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  border: 1px solid white;
+}
+#start {
+  margin: 50px;
+}
+#red {
+  background-color: #cd1705;
+}
+#blue {
+  background-color: #0e24de;
+}
+#green {
+  background-color: #24cb24;
+}
+#yellow {
+  background-color: #c6d207;
+}
