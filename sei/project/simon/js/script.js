@@ -8,13 +8,10 @@ const yellowBtn = document.querySelector("#yellow");
 const startBtn = document.querySelector("#start");
 const title = document.querySelector("#title");
 const counter = document.querySelector("#counter");
-const redSound = document.querySelector("#redSound");
-const blueSound = document.querySelector("#blueSound");
-const greenSound = document.querySelector("#greenSound");
-const yelloSound = document.querySelector("#yellowSound");
+
 // create arrays to store computer generated sequence and player responses
-let compSequence = [];
-let playerSequence = [];
+let compSequence = []; //empty computer array to populate with randomn sequence
+let playerSequence = []; //empty player array to populate with player choices
 
 //create variables for game play
 let blink; //variable for flashing button to show sequence
@@ -28,18 +25,18 @@ let sound = true;
 // console.log(counter);
 
 //add click events to buttons
-blueBtn.addEventListener("click", test);
-redBtn.addEventListener("click", test);
-greenBtn.addEventListener("click", test);
-yellowBtn.addEventListener("click", test);
-redSound.addEventListener("click", test);
-blueSound.addEventListener("click", test);
-greenSound.addEventListener("click", test);
-yellowSound.addEventListener("click", test);
-function test() {
-  console.log("I was clicked");
+blueBtn.addEventListener("click", () => {
+  blueSound.play();
+});
+redBtn.addEventListener("click", () => {
   redSound.play();
-}
+});
+greenBtn.addEventListener("click", () => {
+  greenSound.play();
+});
+yellowBtn.addEventListener("click", () => {
+  yellowSound.play();
+});
 
 //configure what happens when user hits start, clear out variables
 startBtn.addEventListener("click", (event) => {
@@ -58,11 +55,8 @@ function start() {
     compSequence.push(Math.floor(Math.random() * 4) + 1);
   }
   console.log(compSequence);
+  computerTurn = true;
+  pause = setInterval(computerTurn, 1000);
 }
-computerTurn = true;
-// pause = setInterval(() => {}, interval);
 
-// // test event listeners
-// function test() {
-//   console.log("I was clicked");
-// }
+// function computerTurn() {}
