@@ -18,6 +18,7 @@ h2 {
   padding: 10px;
   background-color: rgb(220, 232, 238);
   color: black;
+  border-radius: 100px;
 }
 .board {
   width: auto;
@@ -40,28 +41,28 @@ h2 {
   margin: 50px;
 }
 #red {
-  background-color: #cd1705;
+  background-color: red;
   width: 200px;
   height: 200px;
   border-radius: 100px;
   margin: 25px;
 }
 #blue {
-  background-color: #0e24de;
+  background-color: blue;
   width: 200px;
   height: 200px;
   border-radius: 100px;
   margin: 25px;
 }
 #green {
-  background-color: #24cb24;
+  background-color: green;
   width: 200px;
   height: 200px;
   border-radius: 100px;
   margin: 25px;
 }
 #yellow {
-  background-color: #c6d207;
+  background-color: yellow;
   width: 200px;
   height: 200px;
   border-radius: 100px;
