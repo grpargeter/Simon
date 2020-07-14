@@ -8,6 +8,7 @@ const yellowBtn = document.querySelector("#yellow");
 const startBtn = document.querySelector("#start");
 const title = document.querySelector("#title");
 const counter = document.querySelector("#counter");
+const resetBtn = document.querySelector("#reset");
 
 // create arrays to store computer generated sequence and player responses
 let compSequence = []; //empty computer array to populate with randomn sequence
@@ -15,7 +16,7 @@ let playerSequence = []; //empty player array to populate with player choices
 
 //create variables for game play
 let blink; //keeps track of number of blinks in a game
-let playerTurn; //variable for the players turn true/false
+let playerTurn = 0; //variable for the players turn true/false
 let computerTurn; //variable for the computers turn turn true/false
 let alive; // variable for if the game is still active (still alive!!!)
 let winner; //variable for if player gets specified guesses in a row will add "Winner" to #title tag
@@ -70,7 +71,10 @@ yellowBtn.addEventListener("click", () => {
   }
   // console.log(playerSequence);
 });
-
+//configure reset button
+resetBtn.addEventListener("click", (event) => {
+  location.reload();
+});
 //configure what happens when user hits start, clear out variables
 startBtn.addEventListener("click", (event) => {
   start();
@@ -82,7 +86,7 @@ function start() {
   blink = 0;
   interval = 0;
   computerTurn = 1;
-  counter.innerHTML = 1;
+  counter.innerHTML = "Level Completed = 0";
   alive = true;
   for (let i = 0; i < 1; i++) {
     compSequence.push(Math.floor(Math.random() * 4) + 1); //fills compSequence with randomn number for the computer
@@ -108,10 +112,10 @@ async function turn() {
     }
     computerTurn = false;
     while (computerTurn == false) {
-      console.log(computerTurn);
-      await new Promise((r) => setTimeout(r, 500));
+      // console.log(computerTurn);
+      await new Promise((r) => setTimeout(r, 1000));
     }
-    await new Promise((r) => setTimeout(r, 500));
+    await new Promise((r) => setTimeout(r, 1000));
     compSequence.push(Math.floor(Math.random() * 4) + 1);
   }
   computerTurn = false;
@@ -168,23 +172,15 @@ function verify() {
     playerSequence[playerSequence.length - 1] !==
     compSequence[playerSequence.length - 1]
   ) {
-    console.log(
-      `${playerSequence[playerSequence.length - 1]} player sequence ${
-        compSequence[playerSequence.length - 1]
-      }`
-    );
     alive = false;
   }
   if (playerSequence.length == compSequence.length && alive) {
-    // victory();
     if (compSequence.length == playerSequence.length && alive && !winner) {
-      console.log("if player is right you should see this.");
       playerTurn++;
       playerSequence = [];
       computerTurn = true;
       blink = 0;
-      // counter.innerHTML = playerTurn;
-      // interval = setInterval(turn, 800);
+      counter.innerHTML = `Level Completed = ${playerTurn}`;
     }
   }
 
@@ -202,8 +198,6 @@ function verify() {
         blink = 0;
         playerSequence = [];
         alive = true;
-        // interval = setTimeout(turn, 800);
-        // console.log("else getting hit");
       }
     }, 800);
     setTimeout(location.reload.bind(location), 5000);
@@ -218,7 +212,6 @@ function victory() {
 }
 //function to clear colored buttons back to original
 function resetColor() {
-  console.log("color reset");
   blueBtn.style.backgroundColor = "blue";
   redBtn.style.backgroundColor = "red";
   greenBtn.style.backgroundColor = "green";
@@ -226,9 +219,8 @@ function resetColor() {
 }
 //function to blink buttons if win!
 function blinkColor() {
-  console.log("blink color called.");
   blueBtn.style.backgroundColor = "lightblue";
-  redBtn.style.backgroundColor = "lightred";
+  redBtn.style.backgroundColor = "tomato";
   greenBtn.style.backgroundColor = "lightgreen";
   yellowBtn.style.backgroundColor = "lightyellow";
 }

@@ -40,6 +40,9 @@ h2 {
 #start {
   margin: 50px;
 }
+#reset {
+  margin: 50px;
+}
 #red {
   background-color: red;
   width: 200px;
