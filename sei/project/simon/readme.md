@@ -4,18 +4,17 @@ To play, hit the start button and watch for one of the buttons to highlight and 
 
 User Story
 
-//bronze
+//bronze - complete
 I want to be able to start a new game with a button
 I want to be able to click on boxes as they get highlighted
 I want to be able to keep track of my score to determine how many I got correct in a row
 
-//silver
+//silver - complete
 
 I want the buttons to make a sound on click
-
 I want it to buzz when I lose
 
-//gold
+//gold - in process
 Add the option to have multiple players
 Animate the back ground
 Create a "Win" animation and victory sound
@@ -30,6 +29,7 @@ Create a "Win" animation and victory sound
 //create 2x2 grid using flex grid
 //color each box with red, blue, yellow, green
 //create padding around grid boxes
+//style reset, start and instructions
 
 //js
 //create variables to grab colored boxes, title, current score and start new game button

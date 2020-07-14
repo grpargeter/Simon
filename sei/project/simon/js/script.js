@@ -25,8 +25,6 @@ let interval; //variable for pausing between blinks of buttons
 let sound = true; //play a sound on correct answer
 let expert = false; //toggle expert button...not added at this point.
 
-// console.log(counter);
-
 //add click events to buttons which plays audio sounds when clicked and pushes into player array
 blueBtn.addEventListener("click", () => {
   playerSequence.push(1);
@@ -95,12 +93,10 @@ function start() {
   for (let i = 0; i < 1; i++) {
     compSequence.push(Math.floor(Math.random() * 4) + 1); //fills compSequence with randomn number for the computer
   }
-  // console.log(compSequence); //displays random array in console.
-  computerTurn = true; //computer starts the game, player goes 2nd
-  //   interval = setInterval(turn, 800); //trigger turn function 800 ms
+  computerTurn = true;
   turn();
 }
-
+//wao
 async function turn() {
   for (let j = 0; j < 15; j++) {
     for (let i = 0; i < compSequence.length; i++) {
@@ -116,7 +112,6 @@ async function turn() {
     }
     computerTurn = false;
     while (computerTurn == false) {
-      // console.log(computerTurn);
       await new Promise((r) => setTimeout(r, 1000));
     }
     await new Promise((r) => setTimeout(r, 1000));
@@ -125,7 +120,7 @@ async function turn() {
   computerTurn = false;
   victory();
 }
-
+//Functions for color buttons
 function blue() {
   if (sound) {
     blueSound.play();

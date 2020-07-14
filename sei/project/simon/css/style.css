@@ -5,12 +5,15 @@
 } /* body {  margin: 0;} */
 body {
   font-family: "Ruluko", sans-serif;
-  margin: 50px auto;
+  margin: 100px auto;
   text-align: center;
   width: 700px;
-  background-color: rgb(213, 216, 191);
+  background-image: url(tile.jpeg);
 }
-
+#title {
+  font-size: 400%;
+  color: ;
+}
 h2 {
   position: absolute;
   right: 20px;
@@ -30,10 +33,10 @@ h2 {
   grid-template-columns: repeat(2, auto);
   border: 5px solid red;
   border-radius: 300px;
-  background-color:black
+  background-color: black;
 }
 .cell {
-  width: 100px;ß
+  width: 100px;
   height: 100px;
   background-color: black;
   border: 3px solid white;
