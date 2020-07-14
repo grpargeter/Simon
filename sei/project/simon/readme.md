@@ -1,11 +1,24 @@
+Instructions - Welcome to my first Java Script creation. A game called Simon. I used Java script along with CSS and HTML to create this game.
+
+To play, hit the start button and watch for one of the buttons to highlight and play a tone. Continue to follow the pattern as long as you can. You'll see a counter keeping track of what level you are on in the upper right corner. If you are able to make it to 15 in a row you WIN!!! Have Fun.
+
 User Story
 
+//bronze
 I want to be able to start a new game with a button
 I want to be able to click on boxes as they get highlighted
 I want to be able to keep track of my score to determine how many I got correct in a row
+
+//silver
+
 I want the buttons to make a sound on click
-I want the title to tell user they are an expert if they get 10 or more correct
-I want it to buzz when I get it wrong
+
+I want it to buzz when I lose
+
+//gold
+Add the option to have multiple players
+Animate the back ground
+Create a "Win" animation and victory sound
 
 //HTML
 //layout HTML with 4 circles(boxes) red,green, blue and yellow
@@ -24,4 +37,3 @@ I want it to buzz when I get it wrong
 //create function to track user input and put into an array
 //create function to store current score in "current score box"
 //create function to reset game after player chooses button incorrectly
-//create function to add "you are an expert" to the "Simon Says...." in title if more than 10 correct
