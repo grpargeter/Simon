@@ -37,7 +37,6 @@ blueBtn.addEventListener("click", () => {
       resetColor();
     }, 300);
   }
-  // console.log(playerSequence);
 });
 redBtn.addEventListener("click", () => {
   playerSequence.push(3);
@@ -48,7 +47,6 @@ redBtn.addEventListener("click", () => {
       resetColor();
     }, 300);
   }
-  // console.log(playerSequence);
 });
 greenBtn.addEventListener("click", () => {
   playerSequence.push(2);
@@ -59,7 +57,6 @@ greenBtn.addEventListener("click", () => {
       resetColor();
     }, 300);
   }
-  // console.log(playerSequence);
 });
 yellowBtn.addEventListener("click", () => {
   playerSequence.push(4);
@@ -74,7 +71,7 @@ yellowBtn.addEventListener("click", () => {
 //configure instructions button
 instructBtn.addEventListener("click", (event) => {
   alert(
-    "Repeat the pattern Simons shows you. If you can make it to 15 you win!"
+    "Press the 'Start' button to start Simons pattern. Repeat the pattern Simons shows you. If you can make it to 15 you win!"
   );
 });
 
@@ -130,7 +127,6 @@ async function turn() {
 }
 
 function blue() {
-  console.log("blue is called");
   if (sound) {
     blueSound.play();
   }
@@ -140,7 +136,6 @@ function blue() {
   }, 500);
 }
 function green() {
-  console.log("green is called");
   if (sound) {
     greenSound.play();
   }
@@ -150,7 +145,6 @@ function green() {
   }, 500);
 }
 function red() {
-  console.log("red is called");
   if (sound) {
     redSound.play();
   }
@@ -160,7 +154,6 @@ function red() {
   }, 500);
 }
 function yellow() {
-  console.log("Yellow is called");
   if (sound) {
     yellowSound.play();
   }
@@ -194,14 +187,14 @@ function verify() {
   if (alive == false) {
     blinkColor();
     counter.innerHTML = "Wrong!";
+
     setTimeout(() => {
       counter.innerHTML = "You are a loser!";
+      buzzer.play();
       resetColor();
-
       if (expert) {
         start();
       } else {
-        // computerTurn = true;
         blink = 0;
         playerSequence = [];
         alive = true;
