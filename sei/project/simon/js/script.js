@@ -35,7 +35,7 @@ blueBtn.addEventListener("click", () => {
       resetColor();
     }, 300);
   }
-  console.log(playerSequence);
+  // console.log(playerSequence);
 });
 redBtn.addEventListener("click", () => {
   playerSequence.push(3);
@@ -46,7 +46,7 @@ redBtn.addEventListener("click", () => {
       resetColor();
     }, 300);
   }
-  console.log(playerSequence);
+  // console.log(playerSequence);
 });
 greenBtn.addEventListener("click", () => {
   playerSequence.push(2);
@@ -57,7 +57,7 @@ greenBtn.addEventListener("click", () => {
       resetColor();
     }, 300);
   }
-  console.log(playerSequence);
+  // console.log(playerSequence);
 });
 yellowBtn.addEventListener("click", () => {
   playerSequence.push(4);
@@ -68,7 +68,7 @@ yellowBtn.addEventListener("click", () => {
       resetColor();
     }, 300);
   }
-  console.log(playerSequence);
+  // console.log(playerSequence);
 });
 
 //configure what happens when user hits start, clear out variables
@@ -84,45 +84,38 @@ function start() {
   computerTurn = 1;
   counter.innerHTML = 1;
   alive = true;
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 1; i++) {
     compSequence.push(Math.floor(Math.random() * 4) + 1); //fills compSequence with randomn number for the computer
   }
-  console.log(compSequence); //displays random array in console.
+  // console.log(compSequence); //displays random array in console.
   computerTurn = true; //computer starts the game, player goes 2nd
   //   interval = setInterval(turn, 800); //trigger turn function 800 ms
   turn();
 }
 
-function turn() {
-  for (let i = 0; i < compSequence.length; i++) {
-    if (compSequence[i] === 1) {
-      setTimeout(blue, 1000 * i);
-    } else if (compSequence[i] === 2) {
-      setTimeout(green, 1000 * i);
-    } else if (compSequence[i] === 3) {
-      setTimeout(red, 1000 * i);
-    } else if (compSequence[i] === 4) {
-      setTimeout(yellow, 1000 * i);
+async function turn() {
+  for (let j = 0; j < 5; j++) {
+    for (let i = 0; i < compSequence.length; i++) {
+      if (compSequence[i] === 1) {
+        setTimeout(blue, 1000 * i);
+      } else if (compSequence[i] === 2) {
+        setTimeout(green, 1000 * i);
+      } else if (compSequence[i] === 3) {
+        setTimeout(red, 1000 * i);
+      } else if (compSequence[i] === 4) {
+        setTimeout(yellow, 1000 * i);
+      }
     }
+    computerTurn = false;
+    while (computerTurn == false) {
+      console.log(computerTurn);
+      await new Promise((r) => setTimeout(r, 500));
+    }
+    await new Promise((r) => setTimeout(r, 500));
+    compSequence.push(Math.floor(Math.random() * 4) + 1);
   }
   computerTurn = false;
-  // console.log("turn is called");
-  // if (blink == computerTurn) {
-  //   clearInterval(interval);
-  //   computerTurn = false;
-  //   console.log("Computer turn is false");
-  // }
-  // if (computerTurn) {
-  //   console.log("computer turn called");
-  //   resetColor();
-  //   setTimeout(() => {
-  //     if (compSequence[blink] == 1) blue(); //if the compSequence array is 1 then run blue funtion
-  //     if (compSequence[blink] == 2) green(); //if the compSequence array is 2 run green function
-  //     if (compSequence[blink] == 3) red(); //if the compSequence array is 3 run the red function
-  //     if (compSequence[blink] == 4) yellow(); //if the compSequence array if 4 run the yellow function.
-  //     blink++;
-  //   }, 200);
-  // }
+  victory();
 }
 
 function blue() {
@@ -150,7 +143,7 @@ function red() {
   if (sound) {
     redSound.play();
   }
-  redBtn.style.backgroundColor = "rgb(231, 110, 110)";
+  redBtn.style.backgroundColor = "tomato";
   setTimeout(() => {
     resetColor();
   }, 500);
@@ -168,49 +161,52 @@ function yellow() {
 
 //function to compare computer to player and verify correct sequence
 function verify() {
+  console.log(playerSequence);
+  console.log(compSequence);
   console.log("verify function is called");
   if (
     playerSequence[playerSequence.length - 1] !==
     compSequence[playerSequence.length - 1]
   ) {
     console.log(
-      `${playerSequence[playerSequence.length - 1]} player sequence${
+      `${playerSequence[playerSequence.length - 1]} player sequence ${
         compSequence[playerSequence.length - 1]
       }`
     );
     alive = false;
   }
   if (playerSequence.length == compSequence.length && alive) {
-    victory();
+    // victory();
+    if (compSequence.length == playerSequence.length && alive && !winner) {
+      console.log("if player is right you should see this.");
+      playerTurn++;
+      playerSequence = [];
+      computerTurn = true;
+      blink = 0;
+      // counter.innerHTML = playerTurn;
+      // interval = setInterval(turn, 800);
+    }
   }
 
   if (alive == false) {
     blinkColor();
     counter.innerHTML = "Wrong!";
     setTimeout(() => {
-      counter.innerHTML = playerTurn;
+      counter.innerHTML = "You are a loser!";
       resetColor();
 
       if (expert) {
         start();
       } else {
-        computerTurn = true;
+        // computerTurn = true;
         blink = 0;
         playerSequence = [];
         alive = true;
-        interval = setInterval(turn, 800);
+        // interval = setTimeout(turn, 800);
+        // console.log("else getting hit");
       }
     }, 800);
-    sound = false;
-  }
-  if (computerTurn == playerSequence.length && alive && !winner) {
-    console.log("if player is right you should see this.");
-    playerTurn++;
-    playerSequence = [];
-    computerTurn = true;
-    blink = 0;
-    counter.innerHTML = playerTurn;
-    interval = setInterval(turn, 800);
+    setTimeout(location.reload.bind(location), 5000);
   }
 }
 //function that gets called if you win
