@@ -9,6 +9,7 @@ const startBtn = document.querySelector("#start");
 const title = document.querySelector("#title");
 const counter = document.querySelector("#counter");
 const resetBtn = document.querySelector("#reset");
+const instructBtn = document.querySelector("#instructions");
 
 // create arrays to store computer generated sequence and player responses
 let compSequence = []; //empty computer array to populate with randomn sequence
@@ -69,8 +70,14 @@ yellowBtn.addEventListener("click", () => {
       resetColor();
     }, 300);
   }
-  // console.log(playerSequence);
 });
+//configure instructions button
+instructBtn.addEventListener("click", (event) => {
+  alert(
+    "Repeat the pattern Simons shows you. If you can make it to 15 you win!"
+  );
+});
+
 //configure reset button
 resetBtn.addEventListener("click", (event) => {
   location.reload();
@@ -86,7 +93,7 @@ function start() {
   blink = 0;
   interval = 0;
   computerTurn = 1;
-  counter.innerHTML = "Level Completed = 0";
+  counter.innerHTML = "Level Completed = 0/15";
   alive = true;
   for (let i = 0; i < 1; i++) {
     compSequence.push(Math.floor(Math.random() * 4) + 1); //fills compSequence with randomn number for the computer
@@ -98,7 +105,7 @@ function start() {
 }
 
 async function turn() {
-  for (let j = 0; j < 5; j++) {
+  for (let j = 0; j < 15; j++) {
     for (let i = 0; i < compSequence.length; i++) {
       if (compSequence[i] === 1) {
         setTimeout(blue, 1000 * i);
@@ -180,7 +187,7 @@ function verify() {
       playerSequence = [];
       computerTurn = true;
       blink = 0;
-      counter.innerHTML = `Level Completed = ${playerTurn}`;
+      counter.innerHTML = `Level Completed = ${playerTurn}/15`;
     }
   }
 
