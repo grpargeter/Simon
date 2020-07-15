@@ -2,7 +2,7 @@ Instructions - Welcome to my first Java Script creation. A game called Simon. I 
 
 To play, hit the start button and watch for one of the buttons to highlight and play a tone. Continue to follow the pattern as long as you can. You'll see a counter keeping track of what level you are on in the upper right corner. If you are able to make it to 15 in a row you WIN!!! Have Fun.
 
-Check Out my WireFrame /
+Check Out my WireFrame - Simon Wire Frame
 
 User Story
 
