@@ -2,14 +2,14 @@ Instructions - Welcome to my first Java Script creation. A game called Simon. I 
 
 To play, hit the start button and watch for one of the buttons to highlight and play a tone. Continue to follow the pattern as long as you can. You'll see a counter keeping track of what level you are on in the upper right corner. If you are able to make it to 15 in a row you WIN!!! Have Fun.
 
-![Wire Frame](https://github.com/grpargeter/Simon/SimonFrame.png)
+![Wire Frame](https://https://github.com/grpargeter/Simon/blob/master/SimonFrame.png)
 
 
 User Story
 
 //bronze - complete
 I want to be able to start a new game with a button
-I want to be able to click on boxes as they get highlighted
+I want to be able to click on boxes as they get highlighted  
 I want to be able to keep track of my score to determine how many I got correct in a row
 
 //silver - complete
